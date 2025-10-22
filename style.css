@@ -1,7 +1,13 @@
+/* ======== GLOBAL RESET ======== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* ======== BASE STYLES ======== */
+html {
+  scroll-behavior: smooth; /* smooth scrolling when clicking nav links */
 }
 
 body {
@@ -11,6 +17,7 @@ body {
   line-height: 1.6;
 }
 
+/* ======== NAVIGATION BAR ======== */
 header {
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -28,6 +35,12 @@ header {
   padding: 1rem;
 }
 
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0077ff;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -38,12 +51,14 @@ header {
   text-decoration: none;
   color: #222;
   font-weight: 600;
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
   color: #0077ff;
 }
 
+/* ======== HERO SECTION ======== */
 .hero {
   background: linear-gradient(to right, #0077ff, #00aaff);
   color: white;
@@ -68,16 +83,24 @@ header {
   border-radius: 5px;
   text-decoration: none;
   font-weight: 600;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
   background: #e6f0ff;
+  transform: translateY(-2px);
 }
 
-.section {
+/* ======== SECTION STYLES ======== */
+main {
+  scroll-padding-top: 100px; /* for Safari fallback */
+}
+
+section {
   max-width: 900px;
   margin: 4rem auto;
   padding: 2rem;
+  scroll-margin-top: 100px; /* prevents header overlap */
 }
 
 .section.light {
@@ -92,6 +115,22 @@ header {
   color: #0077ff;
 }
 
+.section p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.section ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+.section li {
+  margin-bottom: 0.6rem;
+}
+
+/* ======== FOOTER ======== */
 footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -102,5 +141,30 @@ footer {
 footer a {
   color: #00aaff;
   text-decoration: none;
+  font-weight: 500;
 }
 
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ======== RESPONSIVE DESIGN ======== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+}
